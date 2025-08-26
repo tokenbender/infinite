@@ -39,19 +39,96 @@ def position_ids_to_cu_seqlens(position_ids):
     # For now, assume single sequence per minibatch
     return torch.tensor([0, len(position_ids)], device=position_ids.device)
 
-def data_manager(func):
+def data_manager(pack_minibatches=False, pair=False, gather=False):
     """
-    Minimal data manager decorator - simplified version
-    Reference: inferred from RL2/utils/sequences.py patterns
+    Reference: RL2/utils/sequences.py lines 234-248
     """
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs)
-    return wrapper
+    def decorator(func):
+        @functools.wraps(func)
+        def func_with_data_scatter_and_gather(
+            worker, tensor_dicts, *args, **kwargs
+        ):
+            minibatches = scatter_and_pack_tensor_dicts(
+                worker, tensor_dicts, pack_minibatches, pair
+            )
+            output = func(worker, minibatches, *args, **kwargs)
+            if gather:
+                output = unpack_and_gather_tensor_dicts(worker, output)
+            return output
+        return func_with_data_scatter_and_gather
+    return decorator
 
-def count_total(tensor_dicts, key="action_mask"):
+def scatter_and_pack_tensor_dicts(
+    worker, tensor_dicts, pack_minibatches=False, pair=False
+):
     """
-    Simple utility to count total tokens
-    Reference: inferred from RL2 usage patterns
+    Minimal scatter and pack - simplified for GRPO
+    Reference: RL2/utils/sequences.py lines 116-181
     """
-    return sum(td[key].sum().item() for td in tensor_dicts)
+    if pack_minibatches:
+        if not dist.is_initialized() or dist.get_rank() == 0:
+            bsz = math.ceil(
+                len(tensor_dicts) / worker.config.update_per_rollout
+            )
+            return [
+                scatter_and_pack_tensor_dicts(
+                    worker, tensor_dicts[update * bsz:(update + 1) * bsz]
+                )
+                for update in range(worker.config.update_per_rollout)
+            ]
+        else:
+            return [
+                scatter_and_pack_tensor_dicts(worker, None)
+                for _ in range(worker.config.update_per_rollout)
+            ]
+    
+    # Simplified version - just return tensors as minibatches
+    if tensor_dicts is None:
+        return []
+    
+    minibatches = []
+    for td in tensor_dicts:
+        minibatches.append({
+            k: v.to(torch.cuda.current_device()) if torch.cuda.is_available() else v
+            for k, v in td.items()
+        })
+    return minibatches
+
+def unpack_and_gather_tensor_dicts(worker, minibatches):
+    """
+    Minimal unpack and gather - simplified for GRPO
+    Reference: RL2/utils/sequences.py lines 225-232
+    """
+    # For simplified version, just return the minibatches as tensor dicts
+    tensor_dicts = []
+    for minibatch in minibatches:
+        tensor_dicts.append({
+            k: v.to("cpu") if torch.cuda.is_available() else v
+            for k, v in minibatch.items()
+        })
+    return tensor_dicts
+
+def count_total(minibatches, key, device_mesh=None):
+    """
+    Reference: RL2/utils/sequences.py lines 250-269
+    """
+    if isinstance(key, tuple):
+        return tuple(
+            count_total(minibatches, k, device_mesh)
+            for k in key
+        )
+        
+    total = sum(
+        [minibatch[key].sum() for minibatch in minibatches]
+    )
+    
+    if device_mesh is not None and dist.is_initialized():
+        total = torch.tensor([total]).to(torch.cuda.current_device())
+        dist.all_reduce(
+            total,
+            op=dist.ReduceOp.SUM,
+            group=device_mesh.get_group()
+        )
+        return total.to("cpu").item()
+    
+    return total.item() if hasattr(total, 'item') else total
