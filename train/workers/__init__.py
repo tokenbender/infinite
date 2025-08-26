@@ -1,10 +1,6 @@
 from .base import Worker
+from .actor import Actor
+from .critic import Critic
+from .rollout import Rollout
 
-__all__ = ["Worker"]
-
-# Note: Full Actor, Rollout, and Critic implementations require additional 
-# complex dependencies from the RL2 codebase. For a complete implementation,
-# port these from:
-# - RL2/workers/actor.py 
-# - RL2/workers/rollout.py
-# - RL2/workers/critic.py
+__all__ = ["Worker", "Actor", "Critic", "Rollout"]
