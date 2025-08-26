@@ -158,7 +158,7 @@ class GRPOTrainer(Trainer):
         save_model(self, self.actor)
 
 
-@hydra.main(config_path="../config", config_name="grpo", version_base=None)
+@hydra.main(config_path="../../config", config_name="grpo", version_base=None)
 def main(config):
     """
     Reference: RL2/trainer/ppo.py lines 139-150
