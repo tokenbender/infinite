@@ -6,5 +6,120 @@ this project implements a novel reinforcement learning approach that leverages p
 - **rubric-driven prioritization**: using structured evaluation criteria to determine experience replay priority
 - **continual learning optimization**: maximizing knowledge retention and transfer across learning tasks
 - **adaptive replay strategies**: dynamically adjusting replay priorities based on learning progress and performance metrics
+- **grpo training**: currently has a grpo implementation
 
-this is a fully open source work. for a comprehensive explanation of the theoretical foundationsand to see how it grows see - [https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
+## features
+
+### core implementation
+  - distributed training across multiple gpus
+  - fsdp (fully sharded data parallel) for model parallelism
+  - tensor parallelism and sequence parallelism support
+  - zigzag ring attention for efficient long-context training
+  
+### infrastructure  
+- **worker architecture**: modular design with separate actor, critic, and rollout workers
+- **multi-turn dataset handling for RL rollouts**
+- **checkpointing**
+- **environment rewards**: currently added few basic custom reward functions for various rl tasks:
+  - local search optimization
+  - orz problem solving
+  - searchr1 retrieval tasks
+- **hydra configuration**: yaml-based configuration management for hyperparameters
+
+## installation
+
+```bash
+# clone the repository
+git clone https://github.com/tokenbender/infinite.git
+cd infinite
+
+uv venv --python 3.11
+uv pip install packaging wheel
+uv pip install torch
+uv pip install "flash-attn==2.7.4.post1" --no-build-isolation -v
+pip install -r requirements.txt
+```
+
+## quick start
+
+### training with grpo
+
+```bash
+# single gpu training
+python -m train.trainer.grpo --config-name grpo
+
+# multi-gpu training (8 gpus)
+torchrun --nproc_per_node=8 -m train.trainer.grpo --config-name grpo
+
+# example launch script with custom grpo config for testing
+./launch_grpo.sh
+```
+
+### configuration
+
+edit `config/grpo.yaml` to customize training parameters:
+- model architecture settings
+- parallelism configurations (ddp, tp, sp sizes)
+- learning rate and optimizer settings
+- dataset paths and batch sizes
+- reward function specifications
+
+## project structure
+
+```
+infinite/
+├── config/          # hydra configuration files
+├── env/            # custom reward functions
+├── train/          # training implementation
+│   ├── datasets/   # dataset handlers
+│   ├── trainer/    # training algorithms
+│   ├── utils/      # utility functions
+│   └── workers/    # distributed workers
+├── rubric/         # rubric evaluation system (to be planned for infinite)
+└── planner/        # planning and scheduler implementation for prioritized experience replay
+```
+
+## technical details
+
+### grpo implementation
+the grpo trainer uses reinforcement learning with group-based policy optimization for improved sample efficiency. key features:
+- advantage normalization with variance reduction
+- kl divergence regularization with k3 reward estimator
+- support for multi-turn conversations and function calling
+
+### parallelism support
+- **fsdp**: fully sharded data parallel for large model training
+- **tensor parallelism**: split model layers across devices
+- **sequence parallelism**: distribute sequence computation
+- **zigzag ring attention**: efficient attention for long sequences
+
+### data format
+training data should be in json format:
+```json
+[
+    {
+        "messages": [
+            {"role": "system", "content": "system prompt"},
+            {"role": "user", "content": "user query"}
+        ],
+        "answer": "expected response"
+    }
+]
+```
+
+## roadmap
+- [ ] pick model and domains, datasets, evals needed for first iteration
+- [ ] implement simple (low/high) spaced repetition for single domain
+- [ ] rubric evaluation system integration for that one domain
+- [ ] logging support for understanding rollouts
+- [ ] spaced repetition scheduling (fsrs)
+- [ ] multi-domain continual learning
+- [ ] extend rubric evaluation system to support multiple domains
+- [ ] enhanced prioritized replay mechanisms for avoiding reward hacking/sample efficiency/miscellaneous discoveries
+
+## contributing
+you can contribute in various tasks here as listed in the roadmap, or just hop in for brainstorming and discussion - https://discord.gg/YaYfPu4ZT4
+contributions are welcome! please feel free to submit pull requests or open issues for bugs and feature requests.
+
+## license
+this is a fully apache 2.0 license oss work. for a comprehensive explanation of the theoretical foundations and to see how it grows see - [https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)

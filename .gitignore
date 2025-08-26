@@ -138,7 +138,7 @@ celerybeat.pid
 .env
 .envrc
 .venv
-env/
+# env/  # Commented out - we need env/ folder for GRPO environment files
 venv/
 ENV/
 env.bak/
@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Local tooling
+.code/
+planner/
