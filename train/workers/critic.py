@@ -22,7 +22,8 @@ class Critic(Worker):
     def __init__(self, config):
         super().__init__(config, True)
 
-        self.model = AutoModelForTokenClassification.from_pretrained(
+        self.model = self._load_with_retry(
+            AutoModelForTokenClassification.from_pretrained,
             config.model_name,
             num_labels=1,
             trust_remote_code=True,

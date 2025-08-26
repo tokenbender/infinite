@@ -2,6 +2,8 @@ import torch
 from torch.nn.utils import clip_grad_norm_
 import torch.distributed as dist
 import transformers
+import time
+import os
 from train.utils.parallelism import prepare_tp_model, prepare_dp_model
 from train.utils.offloading import load_model_to_device, load_optimizer_to_device
 
@@ -15,9 +17,42 @@ class Worker:
         self.train = train
 
         self.prepare_device_mesh()
-        self.tokenizer = transformers.AutoTokenizer.from_pretrained(
-            config.tokenizer_name, trust_remote_code=True
+        self.tokenizer = self._load_with_retry(
+            transformers.AutoTokenizer.from_pretrained,
+            config.tokenizer_name,
+            trust_remote_code=True
         )
+
+    def _load_with_retry(self, load_fn, model_name, max_retries=5, **kwargs):
+        """
+        Load model/tokenizer with exponential backoff retry for rate limiting.
+        """
+        hf_token = os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
+        if hf_token:
+            kwargs["use_auth_token"] = hf_token
+        
+        for attempt in range(max_retries):
+            try:
+                return load_fn(model_name, **kwargs)
+            except Exception as e:
+                error_str = str(e)
+                if "429" in error_str or "rate limit" in error_str.lower():
+                    if attempt < max_retries - 1:
+                        wait_time = min((2 ** attempt) * 10, 300)  # Cap at 5 minutes
+                        if dist.get_rank() == 0:
+                            print(f"Rate limited. Retrying in {wait_time}s [Attempt {attempt+1}/{max_retries}]")
+                        time.sleep(wait_time)
+                    else:
+                        if dist.get_rank() == 0:
+                            print(f"Failed after {max_retries} attempts. Consider:")
+                            print("1. Setting HF_TOKEN environment variable")
+                            print("2. Using a local model path")
+                            print("3. Waiting before retrying")
+                        raise
+                else:
+                    raise
+        
+        raise RuntimeError(f"Failed to load {model_name} after {max_retries} attempts")
 
     def prepare_device_mesh(self):
         """

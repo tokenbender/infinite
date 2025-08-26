@@ -37,7 +37,8 @@ class Actor(Worker):
         else:
             model_cls = AutoModelForCausalLM
 
-        self.model = model_cls.from_pretrained(
+        self.model = self._load_with_retry(
+            model_cls.from_pretrained,
             config.model_name,
             trust_remote_code=True,
             attn_implementation="flash_attention_2"
