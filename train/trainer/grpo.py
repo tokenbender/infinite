@@ -3,7 +3,8 @@ import torch.distributed as dist
 from tqdm import tqdm
 import wandb
 from train.trainer.base import Trainer
-from train.datasets.rl import RLDataset, get_dataloader
+from train.datasets.rl import RLDataset
+from train.datasets.base import get_dataloader
 from train.workers.actor import Actor
 from train.workers.rollout import Rollout
 from train.workers.critic import Critic
