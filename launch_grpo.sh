@@ -15,7 +15,7 @@ torchrun \
     actor.freeze_steps=4 \
     actor.kl.reward_estimator=k3 \
     rollout.train_sampling_params.max_new_tokens=4096 \
-    rollout.env_path=RL2/envs/orz.py \
+    rollout.env_path=env/orz.py \
     adv.estimator=reinforce \
     adv.norm_var=true \
     trainer.project=GRPO \
