@@ -46,6 +46,7 @@ torchrun \
     actor.kl.reward_estimator=k3 \
     rollout.train_sampling_params.max_new_tokens=4096 \
     rollout.env_path=env/orz.py \
+    rollout.apply_chat_template=false \
     adv.estimator=reinforce \
     adv.norm_var=true \
     trainer.project=GRPO \
