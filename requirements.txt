@@ -1,0 +1,13 @@
+# RL training dependencies - Ported from RL2/requirements.txt
+hydra-core
+ninja
+ring-flash-attn==0.1.4
+torch==2.6.0
+tqdm
+transformers
+peft
+liger_kernel
+sglang[all]==0.4.6.post5
+wandb
+flash-attn==2.7.4.post1
+torchdata
