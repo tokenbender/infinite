@@ -107,15 +107,10 @@ training data should be in json format:
 ]
 ```
 
-## roadmap
-- [ ] pick model and domains, datasets, evals needed for first iteration
-- [ ] implement simple (low/high) spaced repetition for single domain
-- [ ] rubric evaluation system integration for that one domain
-- [ ] logging support for understanding rollouts
-- [ ] spaced repetition scheduling (fsrs)
-- [ ] multi-domain continual learning
-- [ ] extend rubric evaluation system to support multiple domains
-- [ ] enhanced prioritized replay mechanisms for avoiding reward hacking/sample efficiency/miscellaneous discoveries
+## roadmap and research plan
+
+see [infinite_implementation_plan_v2_annotated.md](infinite_implementation_plan_v2_annotated.md) for the research plan.
+
 
 ## contributing
 you can contribute in various tasks here as listed in the roadmap, or just hop in for brainstorming and discussion - https://discord.gg/YaYfPu4ZT4
