@@ -36,6 +36,10 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# references and agent files
+CLAUDE.md
+RL2/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
