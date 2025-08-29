@@ -113,7 +113,7 @@ see the research plan here: [infinite: a rubric driven prioritized replay to max
 
 
 ## contributing
-you can contribute in various tasks here as listed in the roadmap, or just hop in for brainstorming and discussion - https://discord.gg/YaYfPu4ZT4
+you can contribute in various tasks here as listed in the roadmap, or just hop in for brainstorming and discussion - [e/Xperiments discord server](https://discord.gg/YaYfPu4ZT4)
 contributions are welcome! please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ## license
