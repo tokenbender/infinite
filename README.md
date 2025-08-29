@@ -109,7 +109,7 @@ training data should be in json format:
 
 ## roadmap and research plan
 
-see the research plan here: [https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
+see the research plan here: [infinite: a rubric driven prioritized replay to maximise continual learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
 
 
 ## contributing
@@ -117,4 +117,4 @@ you can contribute in various tasks here as listed in the roadmap, or just hop i
 contributions are welcome! please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ## license
-this is a fully apache 2.0 license oss work. for a comprehensive explanation of the theoretical foundations and to see how it grows see - [https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
+this is a fully apache 2.0 license oss work. for a comprehensive explanation of the theoretical foundations and to see how it grows see - [infinite: a rubric driven prioritized replay to maximise continual learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
