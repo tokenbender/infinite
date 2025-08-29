@@ -109,7 +109,7 @@ training data should be in json format:
 
 ## roadmap and research plan
 
-see [infinite_implementation_plan_v2_annotated.md](infinite_implementation_plan_v2_annotated.md) for the research plan.
+see the research plan here: [https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
 
 
 ## contributing
