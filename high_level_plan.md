@@ -3,12 +3,13 @@
 Goal: Maximize continual learning via a minimal replay mechanism driven by per‑domain pass‑rate EMA, keeping GRPO core unchanged.
 
 ### Issue Tasklist
+- [ ] #2 Models, domains, datasets, evals for first iteration (P0)
 - [ ] #5 Domain registry + multi-domain dataset/env routing
 - [ ] #8 Stubs and randomized rewards to unblock E2E runs
 - [ ] #6 Single-signal prioritized replay scheduler (acc_ema)
 - [ ] #7 Contamination detector (train/eval overlap audit)
 
-### P0 — Prerequisites
+### P0 — Prerequisites ([#2](https://github.com/tokenbender/infinite/issues/2))
 - [ ] Define domains and coverage: math, code, tools, language, knowledge
 - [ ] Create dataset layout per domain under `data/<domain>/{train,test}.jsonl`
 - [ ] Add eval adapters under `evals/<domain>/` (stubs allowed):
@@ -61,6 +62,7 @@ Goal: Maximize continual learning via a minimal replay mechanism driven by per�
 - [ ] β=0.05, τ=3.0, ε=1e‑3, `init_acc_ema`=0.5 (or baseline), `kl_coefficient`=0.1 (upgrade mode)
 
 ### Unblocking Order & Ownership
+- [ ] #2 — P0: models + domains/datasets/evals selection — Assignee: @me — https://github.com/tokenbender/infinite/issues/2
 - [ ] #5 — P0 (Blocks #6): domain registry + routing — Assignee: @me — https://github.com/tokenbender/infinite/issues/5
 - [ ] #8 — P0 (optional dep on #5): stubs + randomized rewards — Assignee: @me — https://github.com/tokenbender/infinite/issues/8
 - [ ] #6 — P1 (Blocked by #5): scheduler + `acc_ema` persistence — https://github.com/tokenbender/infinite/issues/6
