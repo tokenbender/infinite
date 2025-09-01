@@ -1,8 +1,7 @@
 # infinite
 a rubric driven prioritized replay rl algo to maximise continual learning
 
-Article: infinite — a rubric driven prioritized replay to maximise continual learning
-https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning
+Article: [infinite — a rubric driven prioritized replay to maximise continual learning](https://tokenbender.com/post.html?id=infinite-a-rubric-driven-prioritized-replay-to-maximise-continual-learning)
 
 this project implements a novel reinforcement learning approach that leverages prioritized replay mechanisms guided by learning rubrics to optimize continual learning performance. the algorithm focuses on:
 
