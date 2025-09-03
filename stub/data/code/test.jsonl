@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(10//3)"}],"answer":"3"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint('ab'.upper())"}],"answer":"AB"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(list(range(3)))"}],"answer":"[0, 1, 2]"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(5%2)"}],"answer":"1"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(bool(0))"}],"answer":"False"}

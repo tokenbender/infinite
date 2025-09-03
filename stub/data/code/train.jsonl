@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(2**3**2)"}],"answer":"512"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(len('hello'))"}],"answer":"5"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint('A' * 3)"}],"answer":"AAA"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(sum(range(4)))"}],"answer":"6"}
+{"messages":[{"role":"system","content":"Answer with only the exact output of the Python snippet."},{"role":"user","content":"What does this print?\nprint(','.join(['x','y']))"}],"answer":"x,y"}

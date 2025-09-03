@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"What is 25 + 37?"}],"answer":"62"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"Evaluate 9 * 9."}],"answer":"81"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"What is 100 - 58?"}],"answer":"42"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"Compute (3 + 5) * 4."}],"answer":"32"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"What is 2^6?"}],"answer":"64"}

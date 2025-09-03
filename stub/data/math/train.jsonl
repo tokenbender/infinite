@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"What is 12 + 15?"}],"answer":"27"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"Evaluate 7 * 8."}],"answer":"56"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"Compute 81^(1/2)."}],"answer":"9"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"What is 123 - 45?"}],"answer":"78"}
+{"messages":[{"role":"system","content":"You are a precise math assistant. Reply with only the final numeric answer."},{"role":"user","content":"What is (14 + 6) / 5?"}],"answer":"4"}

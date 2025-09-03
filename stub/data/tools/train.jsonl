@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"Use <search>query</search> to look up facts. Return final result wrapped in <answer>...</answer> only."},{"role":"user","content":"Who is the CEO of OpenAI?"}],"answer":["sam altman","samuel altman"]}
+{"messages":[{"role":"system","content":"Use <search>query</search> to look up facts. Return final result wrapped in <answer>...</answer> only."},{"role":"user","content":"What is the capital of France?"}],"answer":["paris"]}
+{"messages":[{"role":"system","content":"Use <search>query</search> to look up facts. Return final result wrapped in <answer>...</answer> only."},{"role":"user","content":"Who is the CEO of Tesla?"}],"answer":["elon musk"]}
+{"messages":[{"role":"system","content":"Use <search>query</search> to look up facts. Return final result wrapped in <answer>...</answer> only."},{"role":"user","content":"In what year was Python first released?"}],"answer":["1991"]}
+{"messages":[{"role":"system","content":"Use <search>query</search> to look up facts. Return final result wrapped in <answer>...</answer> only."},{"role":"user","content":"Which company created the iPhone?"}],"answer":["apple","apple inc"]}

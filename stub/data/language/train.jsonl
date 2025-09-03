@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"Return only the exact 3-word title."},{"role":"user","content":"Give a 3-word title for: A fast data pipeline"}],"answer":"Fast Data Pipeline"}
+{"messages":[{"role":"system","content":"Return only the exact answer, no punctuation."},{"role":"user","content":"Return the opposite of 'cold'."}],"answer":"hot"}
+{"messages":[{"role":"system","content":"Return only the exact single-word synonym."},{"role":"user","content":"Synonym of 'big'."}],"answer":"large"}
+{"messages":[{"role":"system","content":"Return only the acronym, uppercase."},{"role":"user","content":"What is the acronym of 'random access memory'?"}],"answer":"RAM"}
+{"messages":[{"role":"system","content":"Return only the exact plural form."},{"role":"user","content":"Plural of 'leaf'."}],"answer":"leaves"}

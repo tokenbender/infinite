@@ -10,9 +10,9 @@ Goal: Maximize continual learning via a minimal replay mechanism driven by per�
 - [ ] #7 Contamination detector (train/eval overlap audit)
 
 ### P0 — Prerequisites ([#2](https://github.com/tokenbender/infinite/issues/2))
-- [ ] Define domains and coverage: math, code, tools, language, knowledge
-- [ ] Create dataset layout per domain under `data/<domain>/{train,test}.jsonl`
-- [ ] Add eval adapters under `evals/<domain>/` (stubs allowed):
+- [x] Define domains and coverage: math, code, tools, language (knowledge deferred)
+- [x] Create dataset layout per domain (stubs allowed under `stub/data/<domain>/{train,test}.jsonl` with Hydra overrides)
+- [x] Add eval adapters under `evals/<domain>/` (stubs in place):
   - [ ] math500
   - [ ] aiderbench
   - [ ] terminalbench
@@ -20,9 +20,14 @@ Goal: Maximize continual learning via a minimal replay mechanism driven by per�
   - [ ] vrcli
   - [ ] eq bench
   - [ ] simpleqa
-- [ ] Ensure env/verifiers exist or stubbed in `env/` (use `env/orz.py`, `env/searchr1.py`, extend as needed)
+- [x] Ensure env/verifiers exist or stubbed in `env/` (math/code/language → `env/eq.py`; tools → `env/searchr1.py`)
 - [ ] Implement contamination gate CLI and config (Issue #7)
-- [ ] Choose baseline model (qwen3‑4b or gemma3‑270m) and run baseline eval sweep (optional seeding for `init_acc_ema`)
+- [x] Choose baseline model (Qwen/Qwen2.5-1.5B-Instruct; target Qwen/Qwen2.5-7B-Instruct) and record sampling params
+
+#### Baseline (iteration 1)
+- Model: `Qwen/Qwen2.5-1.5B-Instruct` (smoke); target `Qwen/Qwen2.5-7B-Instruct`
+- Sampling: train `temperature=1.0`, test `temperature=0.0`; `max_new_tokens=128` (tools: 256); `responses_per_prompt=8`; `prompts_per_rollout=64`
+- GRPO: `adv.estimator=reinforce`, `adv.norm_var=true`, `actor.kl.reward_estimator=k3`
 
 ### P0 — Domain Registry & Routing ([#5](https://github.com/tokenbender/infinite/issues/5))
 - [ ] Add config `data.domains: [{id, train_path, test_path, env_path, rubric?}]`

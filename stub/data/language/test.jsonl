@@ -1,0 +1,5 @@
+{"messages":[{"role":"system","content":"Return only the exact 3-word title."},{"role":"user","content":"Give a 3-word title for: A calm ocean morning"}],"answer":"Calm Ocean Morning"}
+{"messages":[{"role":"system","content":"Return only the exact single word."},{"role":"user","content":"Provide a synonym of 'smart'."}],"answer":"clever"}
+{"messages":[{"role":"system","content":"Return only the exact noun form."},{"role":"user","content":"Noun form of 'decide'."}],"answer":"decision"}
+{"messages":[{"role":"system","content":"Return only the exact lowercase animal name."},{"role":"user","content":"What animal says 'meow'?"}],"answer":"cat"}
+{"messages":[{"role":"system","content":"Return only the exact uppercase country code for India."},{"role":"user","content":"Two-letter country code for India."}],"answer":"IN"}

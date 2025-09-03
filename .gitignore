@@ -39,6 +39,7 @@ pip-delete-this-directory.txt
 # references and agent files
 CLAUDE.md
 RL2/
+AGENTS.md
 
 # Unit test / coverage reports
 htmlcov/
@@ -198,6 +199,9 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# Project docs directory
+/docs/
+
 # Cursor
 #  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
 #  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
@@ -213,3 +217,4 @@ __marimo__/
 # Local tooling
 .code/
 planner/
+issues/
