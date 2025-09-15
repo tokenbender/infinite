@@ -32,27 +32,46 @@ fi
 echo "Starting GRPO training with retry logic for model downloads..."
 echo ""
 
+## Example: full run (commented out; replace with real data/model before use)
+# torchrun \
+#     --nproc_per_node=8 \
+#     -m train.trainer.grpo \
+#     data.train_data_path=Chenmien/OpenReasonerZero \
+#     data.test_data_path=Chenmien/OlympiadBench \
+#     data.prompts_per_rollout=128 \
+#     data.responses_per_prompt=32 \
+#     actor.model_name=Qwen/Qwen2.5-7B \
+#     actor.sp_size=4 \
+#     actor.max_length_per_device=8192 \
+#     actor.freeze_steps=4 \
+#     actor.kl.reward_estimator=k3 \
+#     rollout.train_sampling_params.max_new_tokens=4096 \
+#     rollout.env_path=env/orz.py \
+#     rollout.apply_chat_template=false \
+#     adv.estimator=reinforce \
+#     adv.norm_var=true \
+#     trainer.project=GRPO \
+#     trainer.experiment_name=grpo-minimal \
+#     trainer.test_freq=8 \
+#     trainer.save_freq=32
+
 torchrun \
-    --nproc_per_node=8 \
+    --nproc_per_node=1 \
     -m train.trainer.grpo \
-    data.train_data_path=Chenmien/OpenReasonerZero \
-    data.test_data_path=Chenmien/OlympiadBench \
-    data.prompts_per_rollout=128 \
-    data.responses_per_prompt=32 \
-    actor.model_name=Qwen/Qwen2.5-7B \
-    actor.sp_size=4 \
-    actor.max_length_per_device=8192 \
-    actor.freeze_steps=4 \
-    actor.kl.reward_estimator=k3 \
-    rollout.train_sampling_params.max_new_tokens=4096 \
-    rollout.env_path=env/orz.py \
-    rollout.apply_chat_template=false \
+    data.train_data_path=stub/data/math/train.jsonl \
+    data.test_data_path=stub/data/math/test.jsonl \
+    data.prompts_per_rollout=4 \
+    data.responses_per_prompt=2 \
+    actor.model_name=Qwen/Qwen2.5-1.5B-Instruct \
+    actor.max_length_per_device=512 \
+    rollout.train_sampling_params.max_new_tokens=128 \
+    rollout.env_path=env/eq.py \
     adv.estimator=reinforce \
     adv.norm_var=true \
     trainer.project=GRPO \
-    trainer.experiment_name=grpo-minimal \
-    trainer.test_freq=8 \
-    trainer.save_freq=32
+    trainer.experiment_name=grpo-math-stub \
+    trainer.test_freq=4 \
+    trainer.save_freq=8
 
 # GRPO-specific configuration:
 # - adv.estimator=reinforce (Dr. GRPO default)

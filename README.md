@@ -109,6 +109,17 @@ training data should be in json format:
 ]
 ```
 
+### stub datasets
+
+For smoke testing the GRPO pipeline without provisioning full datasets, a math stub is included under `stub/data/math/{train,test}.jsonl`. Point Hydra at the stub by overriding the data paths, for example:
+
+```
+data.train_data_path=stub/data/math/train.jsonl \
+data.test_data_path=stub/data/math/test.jsonl
+```
+
+Each record follows the schema above with concise arithmetic prompts so downstream components can validate JSONL ingestion.
+
 ## roadmap and research plan
 
 - High-level plan (live checklist in repo):

@@ -12,6 +12,7 @@ Goal: Maximize continual learning via a minimal replay mechanism driven by perâ€
 ### P0 â€” Prerequisites ([#2](https://github.com/tokenbender/infinite/issues/2))
 - [ ] Define domains and coverage: math, code, tools, language, knowledge
 - [ ] Create dataset layout per domain under `data/<domain>/{train,test}.jsonl`
+  - [x] Math stub available under `stub/data/math/{train,test}.jsonl`
 - [ ] Add eval adapters under `evals/<domain>/` (stubs allowed):
   - [ ] math500
   - [ ] aiderbench
