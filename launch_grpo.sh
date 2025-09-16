@@ -70,6 +70,7 @@ torchrun \
     adv.norm_var=true \
     trainer.project=GRPO \
     trainer.experiment_name=grpo-math-stub \
+    trainer.use_wandb=false \
     trainer.test_freq=4 \
     trainer.save_freq=8
 
