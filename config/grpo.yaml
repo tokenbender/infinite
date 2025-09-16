@@ -28,7 +28,7 @@ actor:
   scheduler: constant
   warmup_ratio: 0.1
   freeze_steps: 0
-  offload_model: true
+  offload_model: false
   offload_optimizer: true
 
   kl:
