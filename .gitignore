@@ -145,6 +145,7 @@ celerybeat.pid
 # env/  # Commented out - we need env/ folder for GRPO environment files
 venv/
 ENV/
+!env/
 env.bak/
 venv.bak/
 
