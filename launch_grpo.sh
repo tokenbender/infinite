@@ -40,7 +40,7 @@ echo ""
 #     data.test_data_path=Chenmien/OlympiadBench \
 #     data.prompts_per_rollout=128 \
 #     data.responses_per_prompt=32 \
-#     actor.model_name=Qwen/Qwen2.5-7B \
+#     actor.model_name=Qwen/Qwen2-7B \
 #     actor.sp_size=4 \
 #     actor.max_length_per_device=8192 \
 #     actor.freeze_steps=4 \
@@ -62,7 +62,7 @@ torchrun \
     data.test_data_path=stub/data/math/test.jsonl \
     data.prompts_per_rollout=4 \
     data.responses_per_prompt=2 \
-    actor.model_name=Qwen/Qwen2.5-1.5B-Instruct \
+    actor.model_name=Qwen/Qwen2-1.5B-Instruct \
     actor.max_length_per_device=512 \
     rollout.train_sampling_params.max_new_tokens=128 \
     rollout.env_path=environments/eq.py \
@@ -82,5 +82,5 @@ torchrun \
 # Replace placeholder values before running:
 # - data.train_data_path: Replace with path to your JSON/JSONL training data
 # - data.test_data_path: Replace with path to your JSON/JSONL test data  
-# - actor.model_name: Replace with Hugging Face model name (e.g., Qwen/Qwen2.5-7B)
+# - actor.model_name: Replace with Hugging Face model name (e.g., Qwen/Qwen2-7B)
 # - rollout.env_path: Replace with path to your environment file if needed
