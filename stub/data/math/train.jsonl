@@ -1,5 +1,5 @@
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Compute 12 + 35."}],"answer":"47"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"What is 18 multiplied by 7?"}],"answer":"126"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Solve for x: 2x + 5 = 17."}],"answer":"6"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Find the average of 4, 8, 10, and 14."}],"answer":"9"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Simplify (3/4) + (2/3)."}],"answer":"17/12"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Compute 12 + 35."}],"answer":"47"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"What is 18 multiplied by 7?"}],"answer":"126"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Solve for x: 2x + 5 = 17."}],"answer":"6"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Find the average of 4, 8, 10, and 14."}],"answer":"9"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Simplify (3/4) + (2/3)."}],"answer":"17/12"}

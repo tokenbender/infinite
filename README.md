@@ -71,7 +71,7 @@ edit `config/grpo.yaml` to customize training parameters:
 ```
 infinite/
 ├── config/          # hydra configuration files
-├── env/            # custom reward functions
+├── environments/     
 ├── train/          # training implementation
 │   ├── datasets/   # dataset handlers
 │   ├── trainer/    # training algorithms

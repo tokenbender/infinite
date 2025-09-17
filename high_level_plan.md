@@ -21,7 +21,7 @@ Goal: Maximize continual learning via a minimal replay mechanism driven by per�
   - [ ] vrcli
   - [ ] eq bench
   - [ ] simpleqa
-- [ ] Ensure env/verifiers exist or stubbed in `env/` (use `env/orz.py`, `env/searchr1.py`, extend as needed)
+- [ ] Ensure stub environments exist in `environments/` (use `environments/orz.py`, `environments/searchr1.py`, extend as needed)
 - [ ] Implement contamination gate CLI and config (Issue #7)
 - [ ] Choose baseline model (qwen3‑4b or gemma3‑270m) and run baseline eval sweep (optional seeding for `init_acc_ema`)
 
