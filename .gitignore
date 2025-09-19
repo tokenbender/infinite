@@ -142,10 +142,10 @@ celerybeat.pid
 .env
 .envrc
 .venv
-# env/  # Commented out - we need env/ folder for GRPO environment files
+# environments/  # Custom reward modules tracked in repo
 venv/
 ENV/
-!env/
+!environments/
 env.bak/
 venv.bak/
 

@@ -1,5 +1,5 @@
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Compute 45 - 19."}],"answer":"26"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Evaluate 5^2 + 3^2."}],"answer":"34"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Solve for y: 3y - 4 = 11."}],"answer":"5"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"What is the least common multiple of 6 and 8?"}],"answer":"24"}
-{"messages":[{"role":"system","content":"You are a concise math tutor."},{"role":"user","content":"Convert 0.375 to a fraction in simplest terms."}],"answer":"3/8"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Compute 45 - 19."}],"answer":"26"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Evaluate 5^2 + 3^2."}],"answer":"34"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Solve for y: 3y - 4 = 11."}],"answer":"5"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"What is the least common multiple of 6 and 8?"}],"answer":"24"}
+{"messages":[{"role":"system","content":"You are a concise math tutor. Return only the final answer inside <answer> tags."},{"role":"user","content":"Convert 0.375 to a fraction in simplest terms."}],"answer":"3/8"}
